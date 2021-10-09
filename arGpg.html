@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>GeoAR.js demo</title>
+    <script src="./aframe_gpg/aframe.min.js"></script>
+    <script src="./aframe_gpg/aframe-look-at-component.min.js"></script>
+    <script src="./aframe_gpg/aframe-ar-nft.js"></script>
+  </head>
+
+  <body style="margin: 0; overflow: hidden">
+    <a-scene
+      vr-mode-ui="enabled: false"
+      embedded
+      arjs="sourceType: webcam; debugUIEnabled: false;"
+      gps-camera
+      simulateLatitude="22.363724"
+      simulateLongitude="113.597748"
+    >
+      <a-box
+        material="color: yellow"
+        gps-entity-place="latitude: 22.363724; longitude: 113.597748"
+      />
+    </a-scene>
+
+    <script>
+      const distanceMsg = document
+        .querySelector("[gps-entity-place]")
+        .getAttribute("distanceMsg");
+      console.log(distanceMsg); // "890 meters"
+    </script>
+  </body>
+</html>
